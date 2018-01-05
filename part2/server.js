@@ -8,7 +8,8 @@ app.post( '/create/:name/:age', function ( req, res ) {
     let output = JSON.parse( fs.readFileSync( './storage.json', 'utf-8' ) )
     output.push( {
         "name": req.params.name,
-        "age": req.params.age
+        "age": req.params.age,
+        "id": output.length.toString()
     } )
     fs.writeFileSync( './storage.json', JSON.stringify( output ) )
 } );
