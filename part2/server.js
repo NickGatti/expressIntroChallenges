@@ -13,6 +13,11 @@ app.post( '/create/:name/:age', function ( req, res ) {
     fs.writeFileSync( './storage.json', output )
 } );
 
+app.get( '/', function ( req, res ) {
+    let output = fs.readFileSync( './storage.json', 'utf-8' )
+    res.send( output )
+} )
+
 app.use( function ( req, res ) {
     res.sendStatus( 404 );
 } );
