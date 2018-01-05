@@ -6,6 +6,16 @@ app.get( '/hello', function ( req, res ) {
     res.send( 'Hello' )
 } )
 
+let createEndpoints = []
+
+app.post( '/create/:id', function ( req, res ) {
+    createEndpoints.push( req.params.id )
+    res.json( {
+        "id": createEndpoints.length,
+        "name": createEndpoints[ createEndpoints.length - 1 ]
+    } );
+} )
+
 app.use( function ( req, res ) {
     res.sendStatus( 404 );
 } );
