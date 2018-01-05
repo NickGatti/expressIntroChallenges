@@ -22,7 +22,6 @@ app.get( '/', function ( req, res ) {
 app.get( '/:name', function ( req, res ) {
     let output = JSON.parse( fs.readFileSync( './storage.json', 'utf-8' ) )
     for ( var i = 0; i < output.length; i++ ) {
-        output[ i ]
         if ( req.params.name === output[ i ].name ) {
             res.send( JSON.stringify( output[ i ] ) )
             return;
